@@ -1,0 +1,13 @@
+#summary An overview of the goals and design of Jene.
+#labels Featured,Phase-Design
+
+= Introduction =
+
+Jene is a lightweight package for creating evolutionary art in Java. It includes two sample applications, one that produces images, and another that produces parametric surfaces.
+
+
+= Details =
+
+The basic algorithms and data structures used in this package are adapted from Karl Sims' classic paper, [http://www.karlsims.com/papers/siggraph91.html Artificial Evolution for Computer Graphics].  Each Organism, corresponding to a single image or sculpture, is represented as a tree of nested expressions (Nodes).  Selection of a subset of a population of Organisms is performed by an Evaluator to produce a new generation.  A simple Evaluator, for example, might visualize each Organism by evaluating it over some input space and let the user choose the most attractive Organisms.  
+
+Once a new set of Organisms have been chosen to survive, mutation and sexual reproduction occurs to replace the lost members of the previous generation.  Evaluation is then performed again on this new population, and the process is iterated until the user is satisfied with the results.  Several Mutations have been included which manipulate the Node trees, but more can be easily defined and added.  
