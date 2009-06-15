@@ -1,0 +1,6 @@
+To-do:
+
+- Eliminate clicking lag
+- Change input type from Pixel to double array for all nodes
+- Make progress label pretty
+- Make multithreading optional
