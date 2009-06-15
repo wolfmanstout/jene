@@ -1,0 +1,1 @@
+To get the ant build to work correctly, you must download the VisAD java visualization library from ftp://ftp.ssec.wisc.edu/pub/visad-2.0/visad.jar and place it in the lib directory.  
