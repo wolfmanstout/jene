@@ -1,0 +1,55 @@
+<project name="jene" basedir="." default="main">
+
+    <property name="src.dir"     value="src"/>
+	<property name="lib.dir"     value="lib"/>
+    <property name="classes.dir" value="bin"/>
+    <property name="jar.dir"     value="jar"/>
+
+    <property name="bw2d.main-class"  value="jene.samples.bw2d.BW2DMain"/>
+	<property name="bw2d.jar"  value="bw2d.jar"/>
+	<property name="surface3d.main-class"  value="jene.samples.surface3d.S3DMain"/>
+	<property name="surface3d.jar"  value="surface3d.jar"/>
+
+	<path id="classpath">
+		<fileset dir="${lib.dir}"/>
+	</path>
+	
+    <target name="clean">
+    	<delete dir="${classes.dir}"/>
+    	<delete dir="${jar.dir}"/>
+    </target>
+
+    <target name="compile">
+        <mkdir dir="${classes.dir}"/>
+        <javac srcdir="${src.dir}" destdir="${classes.dir}" classpathref="classpath" source="1.5"/>
+    	<copy todir="${classes.dir}">
+    		<fileset dir="${src.dir}" excludes="**/*.java"/>
+    	</copy>
+    </target>
+
+    <target name="jar" depends="compile">
+        <mkdir dir="${jar.dir}"/>
+        <jar destfile="${jar.dir}/${bw2d.jar}" basedir="${classes.dir}">
+            <manifest>
+                <attribute name="Main-Class" value="${bw2d.main-class}"/>
+            </manifest>
+        </jar>
+    	<jar destfile="${jar.dir}/${surface3d.jar}" basedir="${classes.dir}">
+            <manifest>
+                <attribute name="Main-Class" value="${surface3d.main-class}"/>
+            </manifest>
+    		<zipfileset src="${lib.dir}/visad.jar"/>
+    	</jar>
+    </target>
+
+    <target name="2d" depends="jar">
+        <java jar="${jar.dir}/${bw2d.jar}" fork="true"/>
+    </target>
+
+	<target name="3d" depends="jar">
+	        <java jar="${jar.dir}/${surface3d.jar}" fork="true"/>
+	</target>
+	
+    <target name="main" depends="clean,jar"/>
+
+</project>
