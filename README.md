@@ -1,4 +1,6 @@
-# Jene: A lightweight evolutionary art package for Java
+# Jene
+
+## A lightweight evolutionary art package for Java
 
 Jene is a lightweight, extensible package for creating artistic images using
 evolutionary algorithms in Java. Jene's algorithms and data structures are based
@@ -17,7 +19,6 @@ application:
 * Flexible, object-oriented design enables easy extension
 * Includes an assortment of pre-made expression nodes and mutations
 * Supports an adaptive model of evolution that learns from its mistakes
-* For more information on the goals and design of this package, please read the Project Overview.
 
 ## Design Overview
 
@@ -39,9 +40,9 @@ easily defined and added.
 
 ## Build Notes
 
-To get the ant build to work correctly, you must download the
-[VisAD java visualization library](ftp://ftp.ssec.wisc.edu/pub/visad-2.0/visad.jar)
-and place it in the lib directory.
+To get the ant build to work correctly, you must download the VisAD java
+visualization library from ftp://ftp.ssec.wisc.edu/pub/visad-2.0/visad.jar and
+place it in the lib directory.
 
 ## Credits
 
